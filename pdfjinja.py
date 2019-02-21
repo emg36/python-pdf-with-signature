@@ -90,7 +90,7 @@ class Attachment(object):
         stream = BytesIO()
         pdf = canvas.Canvas(stream)
         w, h = self.img.size
-        pdf.drawImage(ImageReader(self.img), *self.dimensions)
+        pdf.drawImage(ImageReader(self.img), *self.dimensions, mask=[255,255,255,255,255,255])
 
         if hasattr(self, "label"):
             w, h = self.label.size
