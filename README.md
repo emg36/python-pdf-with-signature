@@ -1,5 +1,14 @@
 # python-pdf-with-signature
-This is more of a note to self than a library of solutions
+
+This is more of a note to self than a library of solutions.
+
+To get this party started
+
+```
+pip install git+https://github.com/revolunet/pypdftk.git
+pip install git+https://github.com/emg36/python-pdf-with-signature.git
+```
+
 
 The below pdfjinja readme is taken from https://github.com/yoongkang/pdfjinja
 
