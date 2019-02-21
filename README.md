@@ -159,4 +159,4 @@ No. No it is not. But it does work. If you want to just use the pdfjinja library
 To do
 =====
 
-Test that I can install everything to pip in one go like pip install +git+https://github.com/emg36/python-pdf-with-signature.git
+Test that I can install everything to pip in one go like pip install git+https://github.com/emg36/python-pdf-with-signature.git
