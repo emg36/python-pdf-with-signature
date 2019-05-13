@@ -101,8 +101,11 @@ Python::
 
 You can optionally choose the pdf not be flattened (as it will be flattened by default). In the above example you would change it to 
 
-Python::
-    pdfout = pdfjinja(dict(firstName='Faye', lastName='Valentine'), flatten=False)
+```python
+...
+pdfout = pdfjinja(dict(firstName='Faye', lastName='Valentine'), flatten=False)
+...
+```
 
 If you are using this with Flask as a webserver::
 
