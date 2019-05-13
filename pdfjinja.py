@@ -219,7 +219,8 @@ class PdfJinja(object):
         dt = datetime.datetime.fromtimestamp(time.mktime(ts))
         return dt.strftime("%m/%d/%y")
 
-    def exec_pdftk(self, data):
+    def exec_pdftk(self, data, flatten):
+        print('here we go with data = = = ', data)
         fdf = forge_fdf("", data.items(), [], [], [], checkbox_checked_name="On")
         args = [
             "pdftk",
@@ -227,8 +228,9 @@ class PdfJinja(object):
             "fill_form", "-",
             "output", "-",
             "dont_ask",
-            "flatten"
         ]
+        if flatten:
+            args.append('flatten')
 
         p = Popen(args, stdin=PIPE, stdout=PIPE, stderr=PIPE)
         stdout, stderr = p.communicate(fdf)
@@ -237,7 +239,7 @@ class PdfJinja(object):
 
         return BytesIO(stdout)
 
-    def __call__(self, data, attachments=[], pages=None):
+    def __call__(self, data, attachments=[], pages=None, flatten=True):
         self.rendered = {}
         for field, ctx in self.fields.items():
             if "template" not in ctx:
@@ -258,7 +260,7 @@ class PdfJinja(object):
                         field = field.decode('utf-8')
                     self.rendered[field] = rendered_field
 
-        filled = PdfFileReader(self.exec_pdftk(self.rendered))
+        filled = PdfFileReader(self.exec_pdftk(self.rendered, flatten))
         for pagenumber, watermark in self.watermarks:
             page = filled.getPage(pagenumber)
             page.mergePage(watermark)
