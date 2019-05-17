@@ -165,6 +165,8 @@ pdfout.write(open('pdfs/complete/final-result.pdf', 'wb'))
 os.remove('pdfs/complete/temp_file.pdf')
 ```
 
+A side note for use of pypdftk. There is a function called dump_data_fields that you can call like pypdftk.dump_data_fields(file_path). If file_path has spaces in it i.e. /path/to/my file name.pdf then the spaces get passed on to the shell to call which creates an error because the spaces need to be escaped. Easy solution is to make the name of the file with no spaces.
+
 
 Is it pretty or ideal?
 ======================
