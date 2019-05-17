@@ -26,7 +26,7 @@ setup(
     install_requires=[
         "fdfgen>=0.13.0",
         "jinja2>=2.8",
-        "pdfminer.six==20160202",
+        "pdfminer.six==20181108",
         "Pillow>=3.2.0",
         "PyPDF2>=1.25.1",
         "reportlab>=3.3.0"
