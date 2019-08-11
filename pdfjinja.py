@@ -220,7 +220,6 @@ class PdfJinja(object):
         return dt.strftime("%m/%d/%y")
 
     def exec_pdftk(self, data, flatten):
-        print('here we go with data = = = ', data)
         fdf = forge_fdf("", data.items(), [], [], [], checkbox_checked_name="On")
         args = [
             "pdftk",
