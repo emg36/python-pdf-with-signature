@@ -98,7 +98,7 @@ class Attachment(object):
             pdf.drawImage(ImageReader(self.label), x, y, w, h)
 
         pdf.save()
-        return PdfReader(stream).getPage(0)
+        return PdfReader(stream).pages[0]
 
 
 class PdfJinja(object):
@@ -261,13 +261,13 @@ class PdfJinja(object):
 
         filled = PdfReader(self.exec_pdftk(self.rendered, flatten))
         for pagenumber, watermark in self.watermarks:
-            page = filled.getPage(pagenumber)
+            page = filled.pages[pagenumber]
             page.mergePage(watermark)
 
         output = PdfWriter()
         pages = pages or range(filled.getNumPages())
         for p in pages:
-            output.addPage(filled.getPage(p))
+            output.addPage(filled.pages[p])
 
         for attachment in attachments:
             output.addBlankPage().mergePage(attachment.pdf())
