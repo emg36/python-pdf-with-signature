@@ -28,6 +28,6 @@ setup(
         "jinja2>=2.8",
         "pdfminer.six==20181108",
         "Pillow>=3.2.0",
-        "PyPDF2>=1.25.1",
+        "PyPDF2>=2.0.0",
         "reportlab>=3.3.0"
     ])
