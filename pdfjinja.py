@@ -270,7 +270,7 @@ class PdfJinja(object):
             output.addPage(filled.pages[p])
 
         for attachment in attachments:
-            output.addBlankPage().mergePage(attachment.pdf())
+            output.add_blank_page().mergePage(attachment.pdf())
 
         return output
 
