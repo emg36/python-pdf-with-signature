@@ -262,7 +262,7 @@ class PdfJinja(object):
         filled = PdfReader(self.exec_pdftk(self.rendered, flatten))
         for pagenumber, watermark in self.watermarks:
             page = filled.pages[pagenumber]
-            page.mergePage(watermark)
+            page.merge_page(watermark)
 
         output = PdfWriter()
         pages = pages or range(len(filled.pages))
@@ -270,7 +270,7 @@ class PdfJinja(object):
             output.add_page(filled.pages[p])
 
         for attachment in attachments:
-            output.add_blank_page().mergePage(attachment.pdf())
+            output.add_blank_page().merge_page(attachment.pdf())
 
         return output
 
