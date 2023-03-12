@@ -265,7 +265,7 @@ class PdfJinja(object):
             page.mergePage(watermark)
 
         output = PdfWriter()
-        pages = pages or range(filled.getNumPages())
+        pages = pages or range(len(filled.pages))
         for p in pages:
             output.addPage(filled.pages[p])
 
