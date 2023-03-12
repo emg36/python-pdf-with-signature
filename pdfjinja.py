@@ -267,7 +267,7 @@ class PdfJinja(object):
         output = PdfWriter()
         pages = pages or range(len(filled.pages))
         for p in pages:
-            output.addPage(filled.pages[p])
+            output.add_page(filled.pages[p])
 
         for attachment in attachments:
             output.addBlankPage().mergePage(attachment.pdf())
